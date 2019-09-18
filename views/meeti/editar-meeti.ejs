@@ -1,0 +1,89 @@
+<main class="contenedor contenedor-formularios">
+        <h1><%- nombrePagina %></h1>
+        <form class="default-form" method="POST">
+            <legend>Sobre el Meeti</legend>
+            <div class="campo">
+                <label>Grupo</label>
+                <select name="grupoId">
+                    <option value="" disabled selected>-- Selecciona Grupo --</option>
+                    <% if(grupos.length > 0) { %>
+                        <% grupos.forEach(grupo => { %>
+                            <option value="<%= grupo.id %>" <%= grupo.id === meeti.GrupoId ? 'selected' : ''%>><%= grupo.nombre %></option>
+                        <% }) %>
+                    <% } %>
+                </select>
+            </div>
+            <div class="campo">
+                <label>Titulo</label>
+                <input type="text" name="titulo" value="<%= meeti.titulo %>" placeholder="Titulo Meeti">
+            </div>
+            <div class="campo">
+                <label>Invitado</label>
+                <input type="text" name="invitado" value="<%= meeti.invitado %>" placeholder="Nombre Invitado o Ponente (si aplica)">
+            </div>
+            <div class="columnas-2 grid">
+                <div class="campo">
+                    <label>Fecha</label>
+                    <input type="date" name="fecha" value="<%= meeti.fecha %>" placeholder="Fecha Meeti">
+                </div>
+                <div class="campo">
+                    <label>Hora</label>
+                    <input type="time" name="hora" value="<%= meeti.hora %>" placeholder="Hora Meeti">
+                </div>
+            </div>
+            <div class="campo">
+                <label>Cupo</label>
+                <input type="number" min="1" name="cupo" value="<%= meeti.cupo %>" placeholder="Cupo Meeti (si aplica)">
+            </div>
+            <div class="campo descripcion">
+                <label>Descripción</label>
+                <div class="contenedor-editor">
+                    <input type="hidden" id="x" value="<%= meeti.descripcion %>" name="descripcion">
+                    <trix-editor input="x"></trix-editor>
+                </div>
+            </div>
+    
+            <legend>Ubicación Meeti</legend>
+            <div class="campo buscador">
+                <label>Coloca la Dirección del Meeti</label>
+                <div class="contenedor-input">
+                    <input type="text" id="formbuscador" placeholder="Ubicación">
+                    <small>El asistente colocará una dirección estimada</small>
+                </div>
+            </div>
+    
+            <div class="campo mapa">
+                <div id="mapa"></div>
+                <p class="informacion">Mueve el Pin hacia el punto exacto en caso de ser necesario</p>
+            </div>
+
+            <p class="informacion">Confirma que los siguientes campos sean correctos:</p>
+            <div class="campo">
+                <label>Dirección</label>
+                <input type="text" id="direccion" name="direccion" value="<%= meeti.direccion %>" placeholder="Dirección">
+            </div>
+            <div class="campo">
+                <label>Ciudad</label>
+                <input type="text" id="ciudad" name="ciudad" value="<%= meeti.ciudad %>" placeholder="Ciudad">
+            </div>
+            <div class="campo">
+                <label>Estado</label>
+                <input type="text" id="estado" name="estado" value="<%= meeti.estado %>" placeholder="Estado">
+            </div>
+            <div class="campo">
+                <label>País</label>
+                <input type="text" id="pais" name="pais" value="<%= meeti.pais %>" placeholder="País">
+            </div>
+            <div class="campo">
+                <label>Latitud</label>
+                <input type="text" id="lat" name="lat" value="<%= meeti.ubicacion.coordinates[0] %>" readonly>
+            </div>
+            <div class="campo">
+                <label>Longtitud</label>
+                <input type="text" id="lng" name="lng" value="<%= meeti.ubicacion.coordinates[1] %>" readonly>
+            </div>
+            <div class="campo enviar">
+                <input type="submit" class="btn btn-rosa" value="Actualizar Meeti">
+            </div>
+        </form>
+    </main>

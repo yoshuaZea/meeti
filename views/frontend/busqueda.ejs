@@ -1,0 +1,12 @@
+<div class="contenedor proximos-eventos">
+    <h1><%= nombrePagina %></h1>
+    <% JSON.stringify(busqueda) %>
+    <% if(busqueda.length > 0) { %>
+        <div class="grid columnas-md-3 ">
+        <% busqueda.forEach(meeti => { %>
+            <%- include ../partials/card-meeti.ejs %>
+        <% }) %>
+    <% } else { %>
+        <p>No hay resultados</p>
+    <% } %>
+</div>

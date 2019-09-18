@@ -1,0 +1,7 @@
+#Ignorar rutas
+/node_modules/
+.DS_Store
+variables.env
+# /public/uploads/grupos/*
+# /public/uploads/perfiles/*
+package-lock.json
