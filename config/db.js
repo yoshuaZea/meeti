@@ -1,4 +1,4 @@
-// const Sequelize = require('Sequelize');
+// const Sequelize = require('sequelize');
 
 // module.exports = new Sequelize('meeti', 'postgres', 'root',{
 //     host: '127.0.0.1',
@@ -17,7 +17,7 @@
 //     // logging: false 
 // });
 
-const Sequelize = require('Sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config({ path: 'variables.env' });
 
 module.exports = new Sequelize(process.env.BD_NAME, process.env.BD_USER, process.env.BD_PASS,{
