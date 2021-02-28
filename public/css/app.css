@@ -76,9 +76,9 @@ p {
     border: none;
     background-color: transparent;
     color:white;
-    width: 100%;
+/*     width: 100%; */
     display: block;
-    flex : 0 0 100%;
+    flex : 0 0 auto;
     border-radius: 5px;
     transition: filter 0.5s ease;
 }
