@@ -26,7 +26,7 @@ module.exports = new Sequelize(process.env.BD_NAME, process.env.BD_USER, process
     dialect: 'postgres',
     dialectOptions: {
       ssl: true
-    }
+    },
     pool: {
         max: 5,
         min: 0,
