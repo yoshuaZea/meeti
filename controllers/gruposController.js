@@ -7,7 +7,7 @@ const uuid = require('uuid/v4');
 
 //Configuración general para multer
 const configuracionMulter = {
-    limits: { fileSize : 100000 }, //Tamaño en bytes - Limitar tamaño del archivo
+    limits: { fileSize : 1000000 }, //Tamaño en bytes - Limitar tamaño del archivo
     storage: fileStorage = multer.diskStorage({
         destination: (req, file, next) => { //Donde se alojaran los archivos subidos
             next(null, __dirname + '../../public/uploads/grupos/');
